@@ -24,10 +24,10 @@ class RepoComp extends React.Component {
 
         return (
             <div className="repocomp">
-                <h3>{ this.props.match } Repositories :</h3>
+                <h3>{ this.props.match/*.params.username*/ } Repositories :</h3>
                 <div className="repolist">
                     { this.state.repos.map((repos, i) => 
-                        <GithubRepoComp repo={ repos } key={ i }  />
+                        <GithubRepoComp repo={ repos } key={ i } />
                     )}
                 </div>
             </div>
