@@ -21,7 +21,7 @@ class ProfilComp extends React.Component {
 
     renderStat(stat) {
         return (
-            <li key={ stat.name} className="user-info__stat">
+            <li key={ stat.name } className="user-info__stat">
                 <Link to={ stat.url }>
                     <p className="user-info__stat-value">{ stat.value }</p>
                     <p className="user-info__stat-name">{ stat.name }</p>

@@ -16,16 +16,22 @@ class SearchComp extends React.Component {
         return (
             <div className="search-page">
                 <h2>Search GitHub User</h2>
-                <input 
-                    className="search-page__input"
-                    type="text"  
-                    onChange={ this.handleChange } 
-                    value={ this.state.userInput }
+                    <input
+                        onChange={this.handleChange}
+                        value={this.state.userInput}
+                        className="search-page__input"
+                        type="text"
+                        required
                     />
-                <Link to={  `/user/${this.state.userInput }` } />  
+                    <Link to={`/user/${this.state.userInput}`}>  
+                        <button className="search-page__button"
+                                disabled={!this.state.userInput}
+                                title="veuillez renseigner un nom"> Search 
+                        </button>
+                    </Link>
             </div>
-        );
-    }
-};
-
-export default SearchComp;
+                );
+            }
+        };
+        
+        export default SearchComp;

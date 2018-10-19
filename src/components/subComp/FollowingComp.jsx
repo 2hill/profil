@@ -1,5 +1,5 @@
 import React from 'react';
-import GithubUserComp from './GithubUserComp';
+import GithubUserComp from '../generique/GithubUserComp';
 
 
 class FollowingComp extends React.Component {
@@ -16,6 +16,7 @@ class FollowingComp extends React.Component {
             .then(following => { this.setState({ following }) });
     }
     
+
     render() {
         if (!this.state.following) {
             return <div>LOADING FOLLOWING...</div>
