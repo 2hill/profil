@@ -1,4 +1,5 @@
 import React from 'react';
+import RepoComp from './subComp/RepoComp';
 import { Link } from 'react-router-dom';
 
 class ProfilComp extends React.Component {
@@ -62,6 +63,7 @@ class ProfilComp extends React.Component {
                         <h2 className="user-info__title">{ user.login } ({ user.name })</h2>
                         <p className="user-info__bio">{ user.bio }</p>
                     </Link>
+                    <RepoComp {...this.props.match}/>
 
                     <ul className="user-info__stats">
                         { stats.map(this.renderStat) }
