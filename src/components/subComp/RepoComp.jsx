@@ -15,7 +15,6 @@ class RepoComp extends React.Component {
             .then(response => response.json())
             .then(repos => { this.setState({ repos: repos }) });
     }
-    
 
     render() {
         if (!this.state.repos) {

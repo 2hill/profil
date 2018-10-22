@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import RepoComp from './subComp/RepoComp';
+import FollowingComp from './subComp/FollowingComp';
+import FollowersComp from './subComp/FollowersComp';
 
 class ProfilComp extends React.Component {
     constructor() {
@@ -25,7 +27,7 @@ class ProfilComp extends React.Component {
             <li key={ stats.name } className="user-info__stat">
                 <Link to={stats.url}>
                     <p className="user-info__stat-value">{ stats.value }</p>
-                    <p className="user-info__stat-name">{ stats.name }</p>
+                    <p className="user-info__stat-name">{ stats.name }</p>                
                 </Link>
             </li>
         );
@@ -62,8 +64,10 @@ class ProfilComp extends React.Component {
                     <div className="user-info__text" to={`/user/${ user.login }`}>
                         <img className="user-info__avatar" src={ user.avatar_url } alt={`${ user.login } avatar`}/>
                         <h2 className="user-info__title">{ user.login } ({ user.name })</h2>
-                        <p className="user-info__bio">{ user.bio }</p>
-                        {/*<RepoComp {...this.props.match}/>*/}
+                        <p className="user-info__bio">{ user.bio }</p> <br/>
+                        <RepoComp {...this.props.match}/>
+                        <FollowingComp {...this.props.match}/>
+                        <FollowersComp {...this.props.match}/>
                     </div>
         
 
@@ -77,4 +81,4 @@ class ProfilComp extends React.Component {
     }
 };
 
-export default withRouter(ProfilComp);
+export default ProfilComp;

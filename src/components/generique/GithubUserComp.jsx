@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 function FollowersComp(props) {
         return (
                         <Link className="userinfo" to={`/user/${props.user.login}`}>

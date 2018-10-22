@@ -8,6 +8,7 @@ import ProfilComp from './components/ProfilComp';
 import FollowersComp from './components/subComp/FollowersComp';
 import FollowingComp from './components/subComp/FollowingComp';
 import RepoComp from './components/subComp/RepoComp';
+import Error from './components/generique/Error';
 
 const route = (
 <BrowserRouter>
@@ -15,10 +16,10 @@ const route = (
             <Route exact path="/" component={ MainComp }/>
             <Route path="/user/:username" component={ ProfilComp }>
                 <Route path="/followers" component={FollowersComp} />
-                <Route path="/following" render={(following) => <FollowingComp {...following}/>}/>
-                <Route path="/repos" render={(repos) => <RepoComp {...repos}/>}/>
-                <Route component={ Error }/>
+                <Route path="/following" component={FollowingComp}/>
+                <Route path="/repos" component={RepoComp}/>}/>
             </Route>
+            <Route component={ Error }/>
         </Switch>
 </BrowserRouter>
     );
