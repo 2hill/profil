@@ -13,10 +13,12 @@ const route = (
 <BrowserRouter>
         <Switch>
             <Route exact path="/" component={ MainComp }/>
-            <Route path="/user/:username" component={ ProfilComp } />
-            <Route path="/followers" component={ FollowersComp }/>
-            <Route path="/following" component={ FollowingComp }/>
-            <Route path="/repos" component={ RepoComp }/>
+            <Route path="/user/:username" component={ ProfilComp }>
+                <Route path="/followers" component={FollowersComp} />
+                <Route path="/following" render={(following) => <FollowingComp {...following}/>}/>
+                <Route path="/repos" render={(repos) => <RepoComp {...repos}/>}/>
+                <Route component={ Error }/>
+            </Route>
         </Switch>
 </BrowserRouter>
     );

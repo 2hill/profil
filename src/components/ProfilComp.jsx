@@ -1,6 +1,6 @@
 import React from 'react';
-import RepoComp from './subComp/RepoComp';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class ProfilComp extends React.Component {
     constructor() {
@@ -20,12 +20,12 @@ class ProfilComp extends React.Component {
         }
     }
 
-    renderStat(stat) {
+    renderStat(stats) {
         return (
-            <li key={ stat.name } className="user-info__stat">
-                <Link to={ stat.url }>
-                    <p className="user-info__stat-value">{ stat.value }</p>
-                    <p className="user-info__stat-name">{ stat.name }</p>
+            <li key={ stats.name } className="user-info__stat">
+                <Link to={stats.url}>
+                    <p className="user-info__stat-value">{ stats.value }</p>
+                    <p className="user-info__stat-name">{ stats.name }</p>
                 </Link>
             </li>
         );
@@ -38,11 +38,12 @@ class ProfilComp extends React.Component {
         }
         const user = this.state.user;
         const stats = [
-           /* {
-                name: 'Public Repos',
+
+            {
+                name: 'Repositories',
                 value: user.public_repos,
                 url: `/user/${ this.props.match.params.username }/repos`
-            },*/
+            },
             {
                 name: 'Followers',
                 value: user.followers,
@@ -62,7 +63,7 @@ class ProfilComp extends React.Component {
                         <img className="user-info__avatar" src={ user.avatar_url } alt={`${ user.login } avatar`}/>
                         <h2 className="user-info__title">{ user.login } ({ user.name })</h2>
                         <p className="user-info__bio">{ user.bio }</p>
-                        <RepoComp {...this.props.match}/> 
+                        {/*<RepoComp {...this.props.match}/>*/}
                     </div>
         
 
@@ -76,4 +77,4 @@ class ProfilComp extends React.Component {
     }
 };
 
-export default ProfilComp;
+export default withRouter(ProfilComp);
