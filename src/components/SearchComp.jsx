@@ -23,9 +23,9 @@ class SearchComp extends React.Component {
                         type="text"
                         required
                     />
-                    <Link to={`/user/${this.state.userInput}`}>  
+                    <Link to={ `/user/${this.state.userInput}` }>  
                         <button className="search-page__button"
-                                disabled={!this.state.userInput}
+                                disabled={ !this.state.userInput }
                                 title="veuillez renseigner un nom"> Search 
                         </button>
                     </Link>

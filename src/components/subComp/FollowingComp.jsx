@@ -11,7 +11,7 @@ class FollowingComp extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.github.com/users/${this.props.params.username}/following`)
+        fetch(`https://api.github.com/users/${this.props.match.params.username}/following`)
             .then(response => response.json())
             .then(following => { this.setState({ following }) });
     }

@@ -30,7 +30,7 @@ class ProfilComp extends React.Component {
             </li>
         );
     }
-
+    
     render() {
         
         if (!this.state.user) {
@@ -38,11 +38,11 @@ class ProfilComp extends React.Component {
         }
         const user = this.state.user;
         const stats = [
-            {
+           /* {
                 name: 'Public Repos',
                 value: user.public_repos,
                 url: `/user/${ this.props.match.params.username }/repos`
-            },
+            },*/
             {
                 name: 'Followers',
                 value: user.followers,
@@ -58,12 +58,13 @@ class ProfilComp extends React.Component {
         return (
             <div className="user-page">
                 <div className="user-info">
-                    <Link className="user-info__text" to={`/user/${ user.login }`}>
+                    <div className="user-info__text" to={`/user/${ user.login }`}>
                         <img className="user-info__avatar" src={ user.avatar_url } alt={`${ user.login } avatar`}/>
                         <h2 className="user-info__title">{ user.login } ({ user.name })</h2>
                         <p className="user-info__bio">{ user.bio }</p>
-                    </Link>
-                    <RepoComp {...this.props.match}/>
+                        <RepoComp {...this.props.match}/> 
+                    </div>
+        
 
                     <ul className="user-info__stats">
                         { stats.map(this.renderStat) }

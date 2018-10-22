@@ -12,7 +12,7 @@ class FollowersComp extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.github.com/users/${this.props.params.username}/followers`)
+        fetch(`https://api.github.com/users/${this.props.match.params.username}/followers`)
             .then(response => response.json())
             .then(followers => { this.setState({ followers: followers }) });
     }
