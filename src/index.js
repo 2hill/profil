@@ -14,7 +14,7 @@ const route = (
 <BrowserRouter>
         <Switch>
             <Route exact path="/" component={ MainComp }/>
-            <Route path="/user/:username" component={ ProfilComp }>
+            <Route exact path="/user/:username" component={ProfilComp}>
                 <Route path="/followers" component={FollowersComp} />
                 <Route path="/following" component={FollowingComp}/>
                 <Route path="/repos" component={RepoComp}/>}/>

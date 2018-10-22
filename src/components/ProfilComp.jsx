@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RepoComp from './subComp/RepoComp';
-import FollowingComp from './subComp/FollowingComp';
-import FollowersComp from './subComp/FollowersComp';
+
 
 class ProfilComp extends React.Component {
     constructor() {
@@ -22,14 +21,18 @@ class ProfilComp extends React.Component {
         }
     }
 
-    renderStat(stats) {
+    renderStat(stat) {
         return (
-            <li key={ stats.name } className="user-info__stat">
-                <Link to={stats.url}>
-                    <p className="user-info__stat-value">{ stats.value }</p>
-                    <p className="user-info__stat-name">{ stats.name }</p>                
+            <div key={ stat.name }>
+            <li  className="user-info__stat">
+                <Link to={stat.url}>
+                    <p className="user-info__stat-value">{ stat.value }</p>
+                    <p className="user-info__stat-name">{ stat.name }</p>                   
                 </Link>
             </li>
+
+         
+            </div>
         );
     }
     
@@ -40,7 +43,6 @@ class ProfilComp extends React.Component {
         }
         const user = this.state.user;
         const stats = [
-
             {
                 name: 'Repositories',
                 value: user.public_repos,
@@ -66,8 +68,6 @@ class ProfilComp extends React.Component {
                         <h2 className="user-info__title">{ user.login } ({ user.name })</h2>
                         <p className="user-info__bio">{ user.bio }</p> <br/>
                         <RepoComp {...this.props.match}/>
-                        <FollowingComp {...this.props.match}/>
-                        <FollowersComp {...this.props.match}/>
                     </div>
         
 
