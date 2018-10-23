@@ -11,7 +11,7 @@ class FollowingComp extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.github.com/users/${this.props.params.username}/following`)
+        fetch(`https://api.github.com/users/${this.props.match.params.username}/following`)
             .then(response => response.json())
             .then(following => { this.setState({ following }) });
     }
@@ -24,7 +24,7 @@ class FollowingComp extends React.Component {
 
         return (
             <div className="followers-page">
-                <h3>{this.props.params.username} is Following :</h3>
+                <h3>{this.props.match.params.username} is Following :</h3>
                 <div className="grid">
                     {this.state.following.map(following => 
                         <GithubUserComp user={following} key={following.id} />
