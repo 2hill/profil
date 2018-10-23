@@ -11,13 +11,13 @@ class ProfilComp extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.github.com/users/${this.props.match.params.username}`)
+        fetch(`https://api.github.com/users/${this.props.params.username}`)
             .then(response => response.json())
-            .then(user => { this.setState({ user: user }) });
+            .then(user => { this.setState({ user }) });
     }
     // re render component with new user on click
     componentDidUpdate(prevProps) {
-        if (prevProps.match.params.username !== this.props.match.params.username) {
+        if (prevProps.params.username !== this.props.params.username) {
             this.componentDidMount();
         }
     }
@@ -31,9 +31,8 @@ class ProfilComp extends React.Component {
                         <p className="user-info__stat-name">{stat.name}</p>
                     </Link>
                 </li>
-                <Route path={stat.url} component={stat.component}/>
-            </div>
-            
+                <Route path={stat.url} component={(props) => <stat.component {...props.match}/>}/>
+            </div>            
         );
     }
     
@@ -47,19 +46,19 @@ class ProfilComp extends React.Component {
             {
                 name: 'Repositories',
                 value: user.public_repos,
-                url: `/user/${this.props.match.params.username}/repos`,
+                url: `/user/${this.props.params.username}/repos`,
                 component: RepoComp
             },
             {
                 name: 'Followers',
                 value: user.followers,
-                url: `/user/${this.props.match.params.username}/followers`,
+                url: `/user/${this.props.params.username}/followers`,
                 component: FollowersComp
             },
             {
                 name: 'Following',
                 value: user.following,
-                url: `/user/${this.props.match.params.username}/following`,
+                url: `/user/${this.props.params.username}/following`,
                 component: FollowingComp
                 
             }
@@ -73,10 +72,8 @@ class ProfilComp extends React.Component {
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`} />
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
                         <p className="user-info__bio">{user.bio}</p> <br />
-                        {/*<RepoComp {...this.props.match} />*/}
+                        <RepoComp {...this.props.match} />
                     </div>
-
-
                     <ul className="user-info__stats">
                         {stats.map(this.renderStat)}
                     </ul>

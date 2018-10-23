@@ -11,7 +11,7 @@ const route = (
 <BrowserRouter>
         <Switch>
             <Route exact path="/" component={ MainComp }/>
-            <Route exct path="/user/:username" component={ ProfilComp } />
+            <Route path="/user/:username" render={ (props) => <ProfilComp {...props.match}/>}/> 
             <Route component={ Error }/>
         </Switch>
 </BrowserRouter>

@@ -1,5 +1,6 @@
 import React from 'react';
 import GithubRepoComp from '../generique/GithubRepoComp';
+import { withRouter } from 'react-router-dom';
 
 class RepoComp extends React.Component {
     constructor() {
@@ -13,7 +14,7 @@ class RepoComp extends React.Component {
     componentDidMount() {
         fetch(`https://api.github.com/users/${this.props.match.params.username}/repos`)
             .then(response => response.json())
-            .then(repos => { this.setState({ repos: repos }) });
+            .then(repos => { this.setState({ repos }) });
     }
 
     render() {
@@ -34,4 +35,4 @@ class RepoComp extends React.Component {
     }
 };
 
-export default RepoComp;
+export default withRouter(RepoComp);

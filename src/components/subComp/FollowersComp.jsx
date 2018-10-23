@@ -7,15 +7,14 @@ class FollowersComp extends React.Component {
         super();
         this.state = {
             followers: [],
-        };
-        
+        };        
     }
 
     componentDidMount() {
         
-        fetch(`https://api.github.com/users/${this.props.match.params.username}/followers`)
+        fetch(`https://api.github.com/users/${this.props.params.username}/followers`)
             .then(response => response.json())
-            .then(followers => { this.setState({ followers: followers }) });
+            .then(followers => { this.setState({ followers }) });
             console.log(this.props);
     }
     
@@ -27,8 +26,8 @@ class FollowersComp extends React.Component {
 
         return (
             <div className="followers-page">
-                <h3> { this.props.match.params.username } Followers :</h3>
-                {console.log(this.props.match.params.username)}
+                <h3> { this.props.params.username } Followers :</h3>
+                {console.log(this.props.params.username)}
                 <div className="grid">
                     { this.state.followers.map(follower => 
                         <GithubUserComp user={ follower } key={ follower.id } />
