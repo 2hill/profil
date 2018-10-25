@@ -7,7 +7,6 @@
     white-space: nowrap;
 }
 
-
 .user-info {
     display: flex;
     flex-wrap: wrap;
@@ -44,13 +43,12 @@
 }
 
 .user-info__stats a {
-    color: #000;
+    color: white;
     text-decoration: none;
     text-transform: lowercase;
     font-variant: small-caps;
     text-align: center;
 }
-
 
 .userinfo {
     display: flex;
