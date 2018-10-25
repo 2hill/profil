@@ -26,7 +26,6 @@ class FollowersComp extends React.Component {
 
         return (
             <div>
-                <h3> { this.props.username } Followers :</h3>
                 {console.log(this.props.username)}
                 <div className="grid">
                     { this.state.followers.map(follower => 

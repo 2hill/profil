@@ -26,7 +26,6 @@ class FollowingComp extends React.Component {
 
         return (
             <div>
-                <h3>{this.props.username} is Following :</h3>
                 <div className="grid">
                     {this.state.following.map(following => 
                         <GithubUserComp user={following} key={following.id} />
