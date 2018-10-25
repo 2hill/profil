@@ -1,0 +1,11 @@
+body {
+    font-family: Helvetica;
+    margin: 0;
+    background-color: rgb(196, 228, 215);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    font-weight: 400;
+}
+
