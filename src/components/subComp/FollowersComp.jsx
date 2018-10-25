@@ -26,7 +26,7 @@ class FollowersComp extends React.Component {
             }
 
         return (
-            <div className="followers-page">
+            <div>
                 <h3> { this.props.username } Followers :</h3>
                 {console.log(this.props.username)}
                 <div className="grid">
