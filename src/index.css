@@ -1,7 +1,11 @@
-body {
+html, body {
     font-family: Helvetica;
     margin: 0;
-    background-color: rgb(196, 228, 215);
+    height: 100%;
+    width: 100%;
+    background: url('../public/git.jpeg') center;
+    background-size: cover;
+    color: aliceblue;
 }
 
 h1,h2,h3,h4,h5,h6 {
