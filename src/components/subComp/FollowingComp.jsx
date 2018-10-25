@@ -2,6 +2,7 @@ import React from 'react';
 import GithubUserComp from '../generique/GithubUserComp';
 
 
+
 class FollowingComp extends React.Component {
     constructor() {
         super();

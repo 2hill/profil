@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const GithubRepoComp = (props) => {
         return (
             <a href={`${props.repo.html_url}`} target="_blank">

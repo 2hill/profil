@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import RepoComp from './subComp/RepoComp';
 import FollowersComp from './subComp/FollowersComp';
 import FollowingComp from './subComp/FollowingComp';
+
 
 class ProfilComp extends React.Component {
     constructor() {
@@ -23,6 +25,7 @@ class ProfilComp extends React.Component {
     componentDidMount() {
         this.getApiData();
     }
+    
     // re render component with new user on click
     componentDidUpdate(prevProps) {
         if (prevProps.username !== this.props.username) {
@@ -37,7 +40,7 @@ class ProfilComp extends React.Component {
                         <p className="user-info__stat-value">{stat.value}</p>
                         <p className="user-info__stat-name">{stat.name}</p>
                     </Link>
-                    <Route path={stat.url} component={(props) => <stat.component username={this.props.username}/>}/>  
+                    <Route path={stat.url} component={() => <stat.component username={this.props.username}/>}/>  
                 </Fragment>     
         );
     }
@@ -45,7 +48,7 @@ class ProfilComp extends React.Component {
     render() {
 
         if (!this.state.user) {
-            return (<div className="user-page">LOADING...</div>);
+            return (<div> LOADING...</div>);
         }
         const user = this.state.user;
         const stats = [
@@ -70,9 +73,8 @@ class ProfilComp extends React.Component {
             }
         ];
 
-
         return (
-            <div className="user-page">
+            
                 <div className="user-info">
                     <div className="user-info__text" to={`/user/${user.login}`}>
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`} />
@@ -89,11 +91,14 @@ class ProfilComp extends React.Component {
                         ))
                         }
                     </ul>
-                </div>
                 {this.props.children}
             </div>
         );
     }
 };
+
+ProfilComp.propTypes = {
+    username: PropTypes.string
+};   
 
 export default ProfilComp;
