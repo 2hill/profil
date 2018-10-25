@@ -9,25 +9,7 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 400;
 }
 
-.main-header {
-    background-color: rgb(37, 67, 131);
-    color: rgb(182, 91, 91);
-    overflow: hidden;
-    padding: 0.5rem;
-}
-
-.main-header h1 {
-    line-height: 1;
-    margin: 0;
-    font-weight: 400;
-}
-
-.main-header a {
-    color: white;
-    text-decoration: none;
-}
-
-.search-page, .title {
+.search-page {
     text-align: center;
 }
 

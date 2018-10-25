@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchComp from './SearchComp';
-
+import './Main.css';
 
 const MainComp = () => {
         return (
