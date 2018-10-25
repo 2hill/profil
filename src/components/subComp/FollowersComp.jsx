@@ -1,6 +1,5 @@
 import React from 'react';
 import GithubUserComp from '../generique/GithubUserComp';
-import './FollowComp.css';
 
 
 class FollowersComp extends React.Component {
