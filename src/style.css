@@ -1,12 +1,33 @@
-.user-info__stat {
-    flex: 1;
-}
-
-.user-info__stat p {
+body {
+    font-family: Helvetica;
     margin: 0;
-    white-space: nowrap;
+    background-color: rgb(196, 228, 215);
 }
 
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.search-page {
+    text-align: center;
+}
+
+.search-page__input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.2em;
+    margin-right: 1em;
+    font-size: 20px;
+}
+.search-page__button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.2em;
+    background-color: rgb(61, 91, 155);
+    font-size: 20px;
+    color: antiquewhite
+}
 
 .user-info {
     display: flex;
@@ -51,7 +72,14 @@
     text-align: center;
 }
 
+.user-info__stat {
+    flex: 1;
+}
 
+.user-info__stat p {
+    margin: 0;
+    white-space: nowrap;
+}
 .userinfo {
     display: flex;
     justify-content: flex-start;
@@ -64,4 +92,13 @@
     height: 36px;
     width: 36px;
     border-radius: 50%;
+}
+.grid {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 50px;
+}
+.repocomp {
+    display: flex;
 }

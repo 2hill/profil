@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import RepoComp from './subComp/RepoComp';
 import FollowersComp from './subComp/FollowersComp';
 import FollowingComp from './subComp/FollowingComp';
-import './ProfilComp.css';
 
 
 class ProfilComp extends React.Component {
@@ -81,6 +80,7 @@ class ProfilComp extends React.Component {
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`} />
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
                         <p className="user-info__bio">{user.bio}</p> <br />
+                        <RepoComp username={this.props.username} />
                     </div>
                     <ul className="user-info__stats">
                         {

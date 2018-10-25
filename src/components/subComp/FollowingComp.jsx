@@ -1,6 +1,5 @@
 import React from 'react';
 import GithubUserComp from '../generique/GithubUserComp';
-import './FollowComp.css';
 
 
 
@@ -25,7 +24,7 @@ class FollowingComp extends React.Component {
             }
 
         return (
-            <div>
+            <div className="followers-page">
                 <h3>{this.props.username} is Following :</h3>
                 <div className="grid">
                     {this.state.following.map(following => 

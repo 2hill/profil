@@ -1,6 +1,5 @@
 import React from 'react';
 import GithubRepoComp from '../generique/GithubRepoComp';
-import './RepoComp';
 
 class RepoComp extends React.Component {
     constructor() {
@@ -24,7 +23,7 @@ class RepoComp extends React.Component {
         return (
             <div className="repocomp">
                 <h3>{ this.props.username } Repositories :</h3>
-                <div>
+                <div className="repolist">
                     { this.state.repos.map((repos, i) => 
                         <GithubRepoComp repo={ repos } key={ i } />
                     )}
