@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MainComp from './components/MainComp';
 import ProfilComp from './components/ProfilComp';
 
-
 const route = (
 <BrowserRouter>
         <Switch>
