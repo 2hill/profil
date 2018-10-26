@@ -19,7 +19,13 @@ class ProfilComp extends React.Component {
 
     getApiData () {
         fetch(`https://api.github.com/users/${this.props.username}`)
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                  return response.json();
+                } else {
+                  throw new Error('This username does not exist ...');
+                }
+              })
             .then(user => { this.setState({ user }) });
     }
 
@@ -27,7 +33,7 @@ class ProfilComp extends React.Component {
         this.getApiData();
     }
     
-    // re render component with new user on click
+     //re render component with new user on click
     componentDidUpdate(prevProps) {
         if (prevProps.username !== this.props.username) {
             this.getApiData();

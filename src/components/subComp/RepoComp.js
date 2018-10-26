@@ -14,7 +14,13 @@ class RepoComp extends React.Component {
         this.mounted = true;
 
         fetch(`https://api.github.com/users/${this.props.username}/repos`)
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                return response.json();
+                } else {
+                throw new Error('This username does not exist ...');
+                }
+            })
             .then(repos => { this.mounted && this.setState({ repos }) });
     }
 

@@ -11,13 +11,23 @@ class FollowersComp extends React.Component {
     }
 
     componentDidMount() {
+        this.mounted = true;
         
         fetch(`https://api.github.com/users/${this.props.username}/followers`)
-            .then(response => response.json())
-            .then(followers => { this.setState({ followers }) });
-            console.log(this.props.username);
+            .then(response => {
+                if (response.ok) {
+                return response.json();
+                } else {
+                throw new Error('This username does not exist ...');
+                }
+            })
+            .then(followers => { this.mounted && this.setState({ followers }) });
     }
     
+    componentWillUnmount(){
+        this.mounted = false;
+    }
+
 
     render() {
         if (!this.state.followers) {

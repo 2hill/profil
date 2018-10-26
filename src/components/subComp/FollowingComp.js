@@ -12,18 +12,30 @@ class FollowingComp extends React.Component {
     }
 
     componentDidMount() {
+
+        this.mounted = true;
+
         fetch(`https://api.github.com/users/${this.props.username}/following`)
-            .then(response => response.json())
-            .then(following => { this.setState({ following }) });
+        .then(response => {
+            if (response.ok) {
+            return response.json();
+            } else {
+            throw new Error('This username does not exist ...');
+            }
+        })
+        .then(following => { this.mounted && this.setState({ following }) });
+}
+    
+    componentWillUnmount() {
+        this.mounted = false;
     }
     
-
     render() {
         if (!this.state.following) {
             return <div>LOADING FOLLOWING...</div>
             }
 
-        return (
+            return (
             <div>
                 <h3>{this.props.username} is Following :</h3>
                 <div className="grid">
