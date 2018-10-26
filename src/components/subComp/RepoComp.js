@@ -11,9 +11,15 @@ class RepoComp extends React.Component {
     }
 
     componentDidMount() {
+        this.mounted = true;
+
         fetch(`https://api.github.com/users/${this.props.username}/repos`)
             .then(response => response.json())
-            .then(repos => { this.setState({ repos }) });
+            .then(repos => { this.mounted && this.setState({ repos }) });
+    }
+
+    componentWillUnmount(){
+        this.mounted = false;
     }
 
     render() {
