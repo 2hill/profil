@@ -90,8 +90,7 @@ class ProfilComp extends React.Component {
                         <p className="user-info__bio">{user.bio}</p> <br />
                     </div>
                 </a>
-                <Route path={user.url} />  
-    
+                <Route path={user.url} />      
                     <ul className="user-info__stats">
                         {
                         stats.map((stat) => ( 
