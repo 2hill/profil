@@ -43,7 +43,7 @@ class ProfilComp extends React.Component {
     renderStat(stat) {
         return (
                 <Fragment>
-                    <Link to={stat.url}>
+                    <Link to={stat.url}>  
                         <p className="user-info__stat-value">{stat.value}</p>
                         <p className="user-info__stat-name">{stat.name}</p>
                     </Link>
@@ -83,11 +83,15 @@ class ProfilComp extends React.Component {
         return (
             
                 <div className="user-info">
+                <a href={user.html_url} target="_blank">
                     <div className="user-info__text" to={`/user/${user.login}`}>
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`} />
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
                         <p className="user-info__bio">{user.bio}</p> <br />
                     </div>
+                </a>
+                <Route path={user.url} />  
+    
                     <ul className="user-info__stats">
                         {
                         stats.map((stat) => ( 
